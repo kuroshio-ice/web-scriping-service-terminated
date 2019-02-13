@@ -13,13 +13,13 @@ end
 
 doc = Nokogiri::HTML.parse(html, nil, charset)
 doc.xpath('//div[@class="Article_Thumbs"]').each do |node|
-	pic_url = node.children[1].attributes['src'].value
-	title = node.children[1].attributes['alt'].value
+  pic_url = node.children[1].attributes['src'].value
+  title = node.children[1].attributes['alt'].value
   result = {
-		pic_url: pic_url,
-		title: title
-	}
-	results.push(result)
+  	pic_url: pic_url,
+  	title: title
+  }
+  results.push(result)
 end
 
 puts JSON.pretty_generate(results)
